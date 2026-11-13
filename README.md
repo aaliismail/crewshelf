@@ -60,7 +60,8 @@ Or clear the download's quarantine flag yourself, which has the same effect:
 xattr -dr com.apple.quarantine ~/Applications/Crewshelf.app
 ```
 
-Only do either for a zip you downloaded from this repo's Releases page (each release lists its SHA-256).
+Only do either for a zip you downloaded from this repo's Releases page. Each release also has a `SHA256SUMS.txt`;
+with both files in one folder, `shasum -a 256 -c SHA256SUMS.txt` should print `OK`.
 
 Right-click the shelf > **Launch at login** to start it with your Mac.
 

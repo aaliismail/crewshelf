@@ -23,7 +23,8 @@ jobs:
           v=$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' build/Crewshelf.app/Contents/Info.plist)
           [ "v$v" = "$GITHUB_REF_NAME" ] || { echo "Info.plist says $v, tag is $GITHUB_REF_NAME"; exit 1; }
           lipo -archs build/Crewshelf.app/Contents/MacOS/Crewshelf
-          shasum -a 256 build/Crewshelf-*.zip | tee build/SHA256SUMS.txt
+          # From inside build/, so the line names the bare file and `shasum -c` works in a download folder.
+          (cd build && shasum -a 256 Crewshelf-*.zip) | tee build/SHA256SUMS.txt
       # gh is on every hosted runner; GITHUB_TOKEN is provided by Actions (no secrets to set up).
       - name: Publish the release
         env:

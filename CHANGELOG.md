@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- The release's `SHA256SUMS.txt` names the bare `Crewshelf-<version>.zip` instead of `build/Crewshelf-<version>.zip`,
+  so `shasum -a 256 -c SHA256SUMS.txt` works in the folder you downloaded to. The 1.0.0 checksum file on the release was
+  replaced with the corrected name; the hash is unchanged.
+
 ## 1.0.0 (2026-11-13)
 
 First public release.
