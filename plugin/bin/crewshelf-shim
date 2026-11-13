@@ -1,0 +1,22 @@
+#!/bin/sh
+# Crewshelf hook shim. Finds the running Crewshelf app's bundled hook client and hands over to it.
+# If Crewshelf was never launched, or its path file or binary is missing, exit 0 with no output, so Claude Code
+# carries on exactly as if this plugin were not installed.
+dir="${CREWSHELF_SUPPORT_DIR:-$HOME/Library/Application Support/Crewshelf}"
+app=$(cat "$dir/app-path" 2>/dev/null) || exit 0
+hook="$app/Contents/MacOS/crewshelf-hook"
+[ -x "$hook" ] || exit 0
+
+# Only run a hook client nobody else could have swapped: the path file, and the bundle from its top folder down to
+# the binary, must be owned by you (or root) and not writable by group or others. Anything else: no output.
+me=$(id -u)
+owned() {
+  s=$(stat -Lf '%u %Lp' "$1" 2>/dev/null) || return 1
+  uid=${s% *} mode=${s#* }
+  [ "$uid" = "$me" ] || [ "$uid" = 0 ] || return 1
+  [ $(( 0$mode & 022 )) -eq 0 ]
+}
+for f in "$dir/app-path" "$app" "$app/Contents" "$app/Contents/MacOS" "$hook"; do
+  owned "$f" || exit 0
+done
+exec "$hook" "$@"

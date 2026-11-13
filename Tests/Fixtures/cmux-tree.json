@@ -1,0 +1,226 @@
+{
+  "active" : {
+    "is_browser_surface" : false,
+    "pane_ref" : "pane:1000070001",
+    "surface_ref" : "surface:1000070001",
+    "surface_type" : "terminal",
+    "tab_ref" : "tab:1000070001",
+    "window_ref" : "window:1000070000",
+    "workspace_id" : "1D2C3B4A-5E6F-4A7B-8C9D-0E1F2A3B4C5D",
+    "workspace_ref" : "workspace:1000070001"
+  },
+  "caller" : {
+    "is_browser_surface" : false,
+    "pane_ref" : "pane:1000070001",
+    "surface_ref" : "surface:1000070001",
+    "surface_type" : "terminal",
+    "tab_ref" : "tab:1000070001",
+    "window_ref" : "window:1000070000",
+    "workspace_id" : "1D2C3B4A-5E6F-4A7B-8C9D-0E1F2A3B4C5D",
+    "workspace_ref" : "workspace:1000070001"
+  },
+  "windows" : [
+    {
+      "active" : true,
+      "current" : true,
+      "index" : 0,
+      "key" : true,
+      "ref" : "window:1000070000",
+      "selected_workspace_id" : "1D2C3B4A-5E6F-4A7B-8C9D-0E1F2A3B4C5D",
+      "selected_workspace_ref" : "workspace:1000070001",
+      "visible" : true,
+      "workspace_count" : 2,
+      "workspaces" : [
+        {
+          "active" : true,
+          "description" : null,
+          "id" : "1D2C3B4A-5E6F-4A7B-8C9D-0E1F2A3B4C5D",
+          "index" : 0,
+          "layout" : {
+            "children" : [
+              {
+                "pane" : {
+                  "ref" : "pane:1000070001"
+                }
+              },
+              {
+                "children" : [
+                  {
+                    "pane" : {
+                      "ref" : "pane:1000070002"
+                    }
+                  },
+                  {
+                    "pane" : {
+                      "ref" : "pane:1000070006"
+                    }
+                  }
+                ],
+                "direction" : "horizontal",
+                "split" : 0.5
+              }
+            ],
+            "direction" : "horizontal",
+            "split" : 0.37731780940060372
+          },
+          "panes" : [
+            {
+              "active" : true,
+              "focused" : true,
+              "index" : 0,
+              "ref" : "pane:1000070001",
+              "selected_surface_ref" : "surface:1000070001",
+              "surface_count" : 2,
+              "surface_refs" : [
+                "surface:1000070001",
+                "surface:1000070007"
+              ],
+              "surfaces" : [
+                {
+                  "active" : true,
+                  "focused" : true,
+                  "here" : true,
+                  "index" : 0,
+                  "index_in_pane" : 0,
+                  "pane_ref" : "pane:1000070001",
+                  "ref" : "surface:1000070001",
+                  "render_health" : "rendering",
+                  "selected" : true,
+                  "selected_in_pane" : true,
+                  "title" : "api: fix flaky test",
+                  "tty" : "ttys001",
+                  "type" : "terminal",
+                  "url" : null
+                },
+                {
+                  "active" : false,
+                  "focused" : false,
+                  "here" : false,
+                  "index" : 1,
+                  "index_in_pane" : 1,
+                  "pane_ref" : "pane:1000070001",
+                  "ref" : "surface:1000070007",
+                  "render_health" : null,
+                  "selected" : false,
+                  "selected_in_pane" : false,
+                  "title" : "NOTES.md",
+                  "tty" : null,
+                  "type" : "markdown",
+                  "url" : null
+                }
+              ]
+            },
+            {
+              "active" : false,
+              "focused" : false,
+              "index" : 1,
+              "ref" : "pane:1000070002",
+              "selected_surface_ref" : "surface:1000070002",
+              "surface_count" : 1,
+              "surface_refs" : [
+                "surface:1000070002"
+              ],
+              "surfaces" : [
+                {
+                  "active" : false,
+                  "focused" : false,
+                  "here" : false,
+                  "index" : 2,
+                  "index_in_pane" : 0,
+                  "pane_ref" : "pane:1000070002",
+                  "ref" : "surface:1000070002",
+                  "render_health" : "rendering",
+                  "selected" : true,
+                  "selected_in_pane" : true,
+                  "title" : "review agent",
+                  "tty" : "ttys003",
+                  "type" : "terminal",
+                  "url" : null
+                }
+              ]
+            },
+            {
+              "active" : false,
+              "focused" : false,
+              "index" : 2,
+              "ref" : "pane:1000070006",
+              "selected_surface_ref" : "surface:1000070006",
+              "surface_count" : 1,
+              "surface_refs" : [
+                "surface:1000070006"
+              ],
+              "surfaces" : [
+                {
+                  "active" : false,
+                  "focused" : false,
+                  "here" : false,
+                  "index" : 3,
+                  "index_in_pane" : 0,
+                  "pane_ref" : "pane:1000070006",
+                  "ref" : "surface:1000070006",
+                  "render_health" : "rendering",
+                  "selected" : true,
+                  "selected_in_pane" : true,
+                  "title" : "docs site",
+                  "tty" : "ttys004",
+                  "type" : "terminal",
+                  "url" : null
+                }
+              ]
+            }
+          ],
+          "pinned" : false,
+          "ref" : "workspace:1000070001",
+          "selected" : true,
+          "title" : "Work"
+        },
+        {
+          "active" : false,
+          "description" : null,
+          "id" : "6A7B8C9D-0E1F-4A2B-9C3D-4E5F6A7B8C9D",
+          "index" : 1,
+          "layout" : {
+            "pane" : {
+              "ref" : "pane:1000070000"
+            }
+          },
+          "panes" : [
+            {
+              "active" : false,
+              "focused" : true,
+              "index" : 0,
+              "ref" : "pane:1000070000",
+              "selected_surface_ref" : "surface:1000070000",
+              "surface_count" : 1,
+              "surface_refs" : [
+                "surface:1000070000"
+              ],
+              "surfaces" : [
+                {
+                  "active" : false,
+                  "focused" : true,
+                  "here" : false,
+                  "index" : 0,
+                  "index_in_pane" : 0,
+                  "pane_ref" : "pane:1000070000",
+                  "ref" : "surface:1000070000",
+                  "render_health" : "not_started",
+                  "selected" : true,
+                  "selected_in_pane" : true,
+                  "title" : "Side project",
+                  "tty" : "ttys002",
+                  "type" : "terminal",
+                  "url" : null
+                }
+              ]
+            }
+          ],
+          "pinned" : false,
+          "ref" : "workspace:1000070000",
+          "selected" : false,
+          "title" : "Side project"
+        }
+      ]
+    }
+  ]
+}

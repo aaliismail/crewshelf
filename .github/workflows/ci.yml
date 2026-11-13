@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      # Pinned to a commit (v6.1.0), not a movable tag. The token is not left in .git/config for the build.
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - name: Toolchain
+        run: swiftc --version && sw_vers
+      # Runs the whole test suite, then builds the app. Tests that need something a hosted runner may not have (a
+      # Unix socket in $TMPDIR, tmux, iTerm2) print a SKIP line with the reason instead of failing.
+      - name: Build and test
+        run: ./build.sh
+      - name: Validate the plugin manifests
+        run: |
+          python3 -m json.tool .claude-plugin/marketplace.json >/dev/null
+          python3 -m json.tool plugin/.claude-plugin/plugin.json >/dev/null
+          python3 -m json.tool plugin/hooks/hooks.json >/dev/null
+      # Claude Code's own manifest checks (they need no login).
+      - name: claude plugin validate
+        run: |
+          npx -y @anthropic-ai/claude-code@stable plugin validate ./plugin
+          npx -y @anthropic-ai/claude-code@stable plugin validate .

@@ -1,0 +1,33 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      # Pinned to a commit (v6.1.0), not a movable tag. The token is not left in .git/config for the build.
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - name: Build, test and zip a universal app
+        run: ./build.sh --universal --zip
+      - name: Check the version matches the tag
+        run: |
+          v=$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' build/Crewshelf.app/Contents/Info.plist)
+          [ "v$v" = "$GITHUB_REF_NAME" ] || { echo "Info.plist says $v, tag is $GITHUB_REF_NAME"; exit 1; }
+          lipo -archs build/Crewshelf.app/Contents/MacOS/Crewshelf
+          shasum -a 256 build/Crewshelf-*.zip | tee build/SHA256SUMS.txt
+      # gh is on every hosted runner; GITHUB_TOKEN is provided by Actions (no secrets to set up).
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" build/Crewshelf-*.zip build/SHA256SUMS.txt \
+            --title "Crewshelf ${GITHUB_REF_NAME#v}" --generate-notes --verify-tag

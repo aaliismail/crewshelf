@@ -1,0 +1,22 @@
+{
+  "name": "crewshelf",
+  "owner": { "name": "Ali Ismail", "url": "https://github.com/aaliismail" },
+  "metadata": {
+    "description": "Crewshelf: a desktop shelf of pixel characters, one per Claude Code session, that lets you approve permissions and answer questions from a speech bubble.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "crewshelf",
+      "source": "./plugin",
+      "description": "Approve permissions and answer questions from the Crewshelf desktop shelf (macOS) instead of the terminal. Does nothing unless the Crewshelf app is running.",
+      "version": "1.0.0",
+      "author": { "name": "Ali Ismail" },
+      "homepage": "https://github.com/aaliismail/crewshelf",
+      "repository": "https://github.com/aaliismail/crewshelf",
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": ["permissions", "notifications", "macos", "desktop"]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "crewshelf",
+  "version": "1.0.0",
+  "description": "Approve permissions and answer questions from the Crewshelf desktop shelf (macOS) instead of the terminal. Does nothing unless the Crewshelf app is running.",
+  "author": { "name": "Ali Ismail", "url": "https://github.com/aaliismail" },
+  "homepage": "https://github.com/aaliismail/crewshelf",
+  "repository": "https://github.com/aaliismail/crewshelf",
+  "license": "MIT",
+  "keywords": ["permissions", "notifications", "macos", "desktop"]
+}
