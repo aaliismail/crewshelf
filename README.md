@@ -67,12 +67,23 @@ Right-click the shelf > **Launch at login** to start it with your Mac.
 
 ### 2. The plugin
 
-In Claude Code:
+In a terminal (both lines at once is fine):
+
+```
+claude plugin marketplace add aaliismail/crewshelf
+claude plugin install crewshelf@crewshelf
+```
+
+Or inside Claude Code, sent as **two separate messages** (pasting both lines into one message runs neither):
 
 ```
 /plugin marketplace add aaliismail/crewshelf
+```
+```
 /plugin install crewshelf@crewshelf
 ```
+
+Then restart any Claude Code session that was already open: plugins load when a session starts.
 
 Until the first hook event arrives, a small bubble on the shelf shows these two commands with a Copy button. It turns
 green when the plugin first reports in. To try the plugin for one run without installing it:
